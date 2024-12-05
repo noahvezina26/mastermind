@@ -8,7 +8,7 @@ def main_loop(sequence):
 
     while guess_count <= 12:
 
-        guess = input("Please guess a sequence of colours (ex. 'R G B Y'): ").split()
+        guess = input("Please guess a sequence of colours (ex. 'RGBY'): ")
 
         correct_exact = check_exact(guess)
         correct_colours = check_colours(guess) - correct_exact
@@ -26,24 +26,17 @@ def main_loop(sequence):
     if guess_count > 12:
         print(f"You lose - you didn't guess the sequence! It was {sequence}.")
 
-
 def check_exact(guess):
-
     count = 0
-
     for i in range(len(guess)):
         if guess[i] == sequence[i]:
             count += 1
-    
+
     return count
 
-
 def check_colours(guess):
-    
     count = 0
-
     counted_colours = []
-
     for i in range(len(guess)):
         for j in range(len(sequence)):
             if guess[i] == sequence[j] and j not in counted_colours:
@@ -53,8 +46,10 @@ def check_colours(guess):
 
     return count
 
-    
 colours = ["R", "G", "B", "Y", "O", "P"]
-sequence = [random.choice(colours) for _ in range(4)]
+
+sequence = ""
+for _ in range(4):
+    sequence += random.choice(colours)
 
 main_loop(sequence)
