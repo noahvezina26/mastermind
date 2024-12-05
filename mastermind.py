@@ -31,7 +31,6 @@ def check_exact(guess):
     for i in range(len(guess)):
         if guess[i] == sequence[i]:
             count += 1
-
     return count
 
 def check_colours(guess):
@@ -43,7 +42,6 @@ def check_colours(guess):
                 count += 1
                 counted_colours.append(j)
                 break
-
     return count
 
 colours = ["R", "G", "B", "Y", "O", "P"]
