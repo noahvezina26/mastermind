@@ -1,5 +1,6 @@
 import random
 
+
 def main_loop(sequence):
 
     print(f"The possible colours are {colours}.")
@@ -19,12 +20,15 @@ def main_loop(sequence):
 
         print(f"\nGuess {guess_count}:")
         print(f"{correct_exact} of your colours are correct and in the right position.")
-        print(f"{correct_colours} of your colours are correct but in the wrong position.\n")
+        print(
+            f"{correct_colours} of your colours are correct but in the wrong position.\n"
+        )
 
         guess_count += 1
 
     if guess_count > 12:
         print(f"You lose - you didn't guess the sequence! It was {sequence}.")
+
 
 def check_exact(guess):
     count = 0
@@ -32,6 +36,7 @@ def check_exact(guess):
         if guess[i] == sequence[i]:
             count += 1
     return count
+
 
 def check_colours(guess):
     count = 0
@@ -43,6 +48,7 @@ def check_colours(guess):
                 counted_colours.append(j)
                 break
     return count
+
 
 colours = ["R", "G", "B", "Y", "O", "P"]
 
